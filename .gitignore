@@ -1,0 +1,4 @@
+.vagrant
+VagrantFile
+vendor
+.idea
