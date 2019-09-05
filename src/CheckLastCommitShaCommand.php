@@ -2,7 +2,6 @@
 
 namespace Console;
 
-use Console\contracts\GitServiceInterface;
 use Console\HtmlParser\DiDom;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
