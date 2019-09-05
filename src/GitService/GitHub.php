@@ -16,8 +16,14 @@ class GitHub extends GitService
     public function getSha()
     {
         $parser = $this->parser;
-        $parser->load($this->getUrl());
+        $url = $this->getUrl();
+        $parser->load($url);
 
-        return $parser->getElements('.sha.user-select-contain')[0]->text();
+        $elements = $parser->getElements('.sha.user-select-contain');
+        if (empty($elements) || !\is_array($elements)) {
+            throw new \RuntimeException('Cannot find the element containing last commit. Checked url: '.$url);
+        }
+
+        return reset($elements)->text();
     }
 }
